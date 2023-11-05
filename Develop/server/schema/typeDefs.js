@@ -10,11 +10,11 @@ const typeDefs = `
 
   type Book {
     bookId: ID
-    authors: [author]
+    authors: [string]
     description: String
     title: String
-    image:
-    link:
+    image: String
+    link: String
   }
   
 
@@ -26,8 +26,8 @@ const typeDefs = `
   type Query {
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
+    books(authors: String): [author]
+    book(bookId: ID!): Book
     me: User
   }
 
