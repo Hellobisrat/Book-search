@@ -48,7 +48,7 @@ const resolvers = {
 
       return { token, user };
     },
-   saveBook: async (parent, { author,description, title,image,link }, context) => {
+   saveBook: async (parent, { bookData }, context) => {
       if (context.user) {
         const book = await Book.create({
           author,
@@ -59,12 +59,12 @@ const resolvers = {
           thoughtAuthor: context.user.username,
         });
 
-        await User.findOneAndUpdate(
+        const userData = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { books: book._id } }
+          { $addToSet: { savedBooks: bookData } }
         );
 
-        return User;
+        return userData;
       }
       throw AuthenticationError;
       ('You need to be logged in!');

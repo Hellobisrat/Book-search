@@ -40,7 +40,7 @@ export const QUERY_SINGLE_BOOK = gql`
       link
       title
       }
-    }
+    
   }
 `;
 
