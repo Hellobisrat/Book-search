@@ -19,7 +19,7 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('books');
+        return User.findOne({ _id: context.user._id }).populate('savedBooks');
       }
       throw AuthenticationError;
     },
@@ -49,19 +49,21 @@ const resolvers = {
       return { token, user };
     },
    saveBook: async (parent, { bookData }, context) => {
+    console.log(context.user, bookData)
       if (context.user) {
-        const book = await Book.create({
-          author,
-          description,
-          title,
-          image,
-          link,
-          thoughtAuthor: context.user.username,
-        });
+        // const book = await Book.create({
+        //   author,
+        //   description,
+        //   title,
+        //   image,
+        //   link,
+        //   thoughtAuthor: context.user.username,
+        // });
 
         const userData = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: bookData } }
+          { $addToSet: { savedBooks: bookData } },
+          {new: true}
         );
 
         return userData;

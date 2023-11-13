@@ -1,5 +1,7 @@
 # Book-search
-<bisrat zerihun>
+
+
+<bisrat Mengesha>
 
 this assignment shows how i work on the graphql and all MERN
 
@@ -12,8 +14,15 @@ Implement the Apollo Server in server.js
 set up login and signup inorder properly login and logout 
 and allow new users to signup 
 
-
-
-in the client side
+Client side
 
 implement GET_ME 
+
+implement the Apollo Server in app.jsx in th client side 
+
+
+repo link https://github.com/Hellobisrat/Book-search.git
+
+
+
+
