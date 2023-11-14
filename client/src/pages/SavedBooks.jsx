@@ -37,28 +37,9 @@ const SavedBooks = () => {
   //     try {
   //       const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  //       if (!token) {
-  //         return false;
-  //       }
-
-  //       const response = await getMe(token);
-
-  //       if (!response.ok) {
-  //         throw new Error('something went wrong!');
-  //       }
-
-  //       const user = await response.json();
-  //       setUserData(user);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-
-  //   getUserData();
-  // }, [userDataLength]);
   
 
-// create handlesavebook function
+
  
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
